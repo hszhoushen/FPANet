@@ -43,7 +43,7 @@ ESC-50: The train/test splits can be found in ESC50.csv.
 
 
 ## Reference
-If you find the paper useful, please cite the following papers:
+If you find the code useful, please cite the following papers:
 
 
 ```
