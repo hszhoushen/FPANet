@@ -1,8 +1,6 @@
-# FPA-ESC
+# FPANet
 
-The repository is the Pytorch implementation of paper:
-
-Feature Pyramid Attention Network for Audio-Visual Scene Classification
+The repository is the Pytorch implementation of paper: Feature Pyramid Attention Network for Audio-Visual Scene Classification
 
 ## Installation
 
@@ -35,6 +33,10 @@ ESC-50: The train/test splits can be found in ESC50.csv.
 
 
 ## Training
+
+```
+sh scripts/fpam/train/fpam_advance.sh
+```
 
 
 
