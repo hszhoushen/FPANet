@@ -583,32 +583,21 @@ class FeaturePyramidAttentionModule(nn.Module):
 class SpatialAttention(nn.Module):
     def __init__(self, in_fea_dim=1024, in_channels=4, out_channels=1, kernel_size=3):
         super(SpatialAttention, self).__init__()
-
         assert kernel_size in (3, 7), 'kernel size must be 3 or 7'
         padding = 3 if kernel_size == 7 else 1
-
+        
         self.conv1 = nn.Conv2d(in_fea_dim, 1, 3, padding=1, bias=False)     # 3x3 conv, padding=1
         self.conv2 = nn.Conv2d(in_fea_dim, 1, 1, padding=0, bias=False)     # 1x1 conv, padding=0
         self.conv3 = nn.Conv2d(in_channels, out_channels, kernel_size, padding=padding, bias=False)
-
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        # print('x.shape:', x.shape)
         avg_out = torch.mean(x, dim=1, keepdim=True)
-        # print('avg_out.shape:', avg_out.shape)
         max_out, _ = torch.max(x, dim=1, keepdim=True)
-        # print('max_out.shape:', max_out.shape)
         out_1_1 = self.conv1(x)
-        # print('out_1_1.shape:', out_1_1.shape)
         out_3_3 = self.conv2(x)
-        # print('out_3_3.shape:', out_3_3.shape)
-
         x = torch.cat([avg_out, max_out, out_1_1, out_3_3], dim=1)
-        # print('x.shape:', x.shape)
-
         x = self.conv3(x)
-        # print('x.shape:', x.shape)
 
         return self.sigmoid(x)
 
