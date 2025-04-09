@@ -49,5 +49,11 @@ If you find the code useful, please cite the following papers:
 
 
 ```
-
+@article{zhou2024feature,
+  title={Feature pyramid attention network for audio-visual scene classification},
+  author={Zhou, Liguang and Zhou, Yuhongze and Qi, Xiaonan and Hu, Junjie and Lam, Tin Lun and Xu, Yangsheng},
+  journal={CAAI Transactions on Intelligence Technology},
+  year={2024},
+  publisher={Wiley Online Library}
+}
 ```
